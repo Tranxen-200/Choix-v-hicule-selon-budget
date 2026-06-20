@@ -1,0 +1,6 @@
+{
+  "name": "Quel Véhicule Acheter ?",
+  "description": "Une application SaaS moderne pour trouver le véhicule idéal selon votre budget, vos besoins et votre profil de conduite.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
