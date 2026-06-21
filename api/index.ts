@@ -7,6 +7,13 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
+// Enable iframe embedding and remove frame restrictions
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "frame-ancestors *;");
+  res.removeHeader("X-Frame-Options");
+  next();
+});
+
 // Lazy getter for Gemini GoogleGenAI client to avoid crash on load if API key is not present
 let aiClient: GoogleGenAI | null = null;
 function getGeminiClient(): GoogleGenAI | null {
