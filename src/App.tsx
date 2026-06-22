@@ -43,6 +43,13 @@ const INITIAL_STATE: QuestionnaireState = {
   priority: "reliability"
 };
 
+const PRIORITY_LABELS: Record<string, string> = {
+  reliability: "Fiabilité mécanique & Entretien minimal",
+  ecology: "Économie de carburant",
+  comfort: "Confort suprême",
+  resale: "Facilité de revente",
+};
+
 export default function App() {
   const [step, setStep] = useState<number>(1);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -947,7 +954,7 @@ export default function App() {
                       <p className="text-slate-500 text-sm">
                         Sélection de {results?.length} voitures ajustées d'après votre budget de{" "}
                         <span className="font-bold text-[#2563EB]">{formData.budgetAmount.toLocaleString("fr-FR")} {formData.budgetType === "cash" ? "€" : "€/mois"}</span>{" "}
-                        et priorité <span className="font-bold text-[#06B6D4]">"{formData.priority}"</span>.
+                        et priorité <span className="font-bold text-[#06B6D4]">"{PRIORITY_LABELS[formData.priority] || formData.priority}"</span>.
                       </p>
                     </div>
 
